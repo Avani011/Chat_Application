@@ -6,10 +6,10 @@ const TheirMessage = ({lastMessage, message}) => {
             {isFirstMessageByUser &&(
                 <div 
                     className="message-avatar"
-                    style={{backgroundImage: `url(${message?.sender?.avatar})`}}
+                    style={{backgroundImage: message.sender && `url(${message.sender.avatar})`}}
                 />
             )}
-            {message?.attachments?.length > 0 
+            {message.attachments && message.attachments.length > 0 
                     ? (
                         <img 
                             src = {message.attachments[0].file}
@@ -25,7 +25,7 @@ const TheirMessage = ({lastMessage, message}) => {
                     )
             }
         </div>
-    )
-}
+    );
+};
 
 export default TheirMessage;
